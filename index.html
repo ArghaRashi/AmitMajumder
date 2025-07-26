@@ -1,285 +1,113 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex the Adventurer - Travel & Exploration</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide-react@latest/dist/lucide-react.js"></script>
-    <script src="https://unpkg.com/lucide-icons@latest/dist/lucide.js"></script>
-
-
-    <style>
-        /* Custom styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-        }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1920x1080/000000/FFFFFF?text=Mountain+Peak');
-            background-size: cover;
-            background-position: center;
-        }
-        .section-title {
-            font-weight: 800;
-            font-size: 2.25rem; /* text-4xl */
-            letter-spacing: -0.025em;
-            color: #1e293b; /* slate-800 */
-        }
-        .nav-link {
-            @apply text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium;
-        }
-        .nav-link-mobile {
-            @apply block text-slate-700 hover:bg-slate-100 p-3 rounded-md font-medium;
-        }
-        .social-icon {
-            @apply w-6 h-6 text-white/70 hover:text-white hover:scale-110 transition-all duration-300;
-        }
-        .card-hover {
-            @apply hover:shadow-xl hover:-translate-y-2 transition-all duration-300;
-        }
-    </style>
-</head>
-<body class="text-slate-600">
-
-    <!-- Header & Hero Section -->
-    <header id="home" class="hero-bg text-white relative">
-        <!-- Navigation -->
-        <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <!-- Logo -->
-                    <a href="#home" class="text-2xl font-bold tracking-wider">ALEX</a>
-                    
-                    <!-- Desktop Nav -->
-                    <div class="hidden md:flex items-center space-x-8">
-                        <a href="#home" class="nav-link">Home</a>
-                        <a href="#latest-videos" class="nav-link">Videos</a>
-                        <a href="#destinations" class="nav-link">Destinations</a>
-                        <a href="#about" class="nav-link">About</a>
-                        <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300">Contact</a>
-                    </div>
-
-                    <!-- Mobile Menu Button -->
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="text-white focus:outline-none">
-                            <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                            <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                        </button>
+</iframe>
                     </div>
                 </div>
-            </div>
-             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#home" class="nav-link-mobile">Home</a>
-                    <a href="#latest-videos" class="nav-link-mobile">Videos</a>
-                    <a href="#destinations" class="nav-link-mobile">Destinations</a>
-                    <a href="#about" class="nav-link-mobile">About</a>
-                    <a href="#contact" class="block bg-indigo-600 text-white text-center mt-2 p-3 rounded-md font-medium hover:bg-indigo-700">Contact</a>
-                </div>
-            </div>
-        </nav>
 
-        <!-- Hero Content -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-screen pt-20">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-center tracking-tight leading-tight">
-                Exploring the World, <br class="hidden md:block"> One Adventure at a Time.
-            </h1>
-            <p class="mt-6 text-lg md:text-xl text-center max-w-3xl text-white/80">
-                Join me, Alex, on a journey to discover breathtaking landscapes, vibrant cultures, and hidden gems across the globe.
-            </p>
-            <div class="mt-10 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#latest-videos" class="bg-white text-slate-900 font-semibold px-8 py-3 rounded-full hover:bg-slate-200 transition-colors duration-300 flex items-center space-x-2">
-                    <i data-lucide="play-circle" class="w-5 h-5"></i>
-                    <span>Watch Latest Video</span>
-                </a>
-                <div class="flex items-center space-x-5">
-                    <a href="#" aria-label="YouTube"><i data-lucide="youtube" class="social-icon"></i></a>
-                    <a href="#" aria-label="Instagram"><i data-lucide="instagram" class="social-icon"></i></a>
-                    <a href="#" aria-label="Twitter"><i data-lucide="twitter" class="social-icon"></i></a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- Featured Video Section -->
-        <section id="featured-video" class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="section-title">My Latest Adventure</h2>
-                    <p class="mt-4 text-lg max-w-2xl mx-auto">24 Hours in the Heart of Tokyo: A Neon Dream</p>
-                </div>
-                <div class="aspect-w-16 aspect-h-9 rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Latest Videos Section -->
-        <section id="latest-videos" class="py-20">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="section-title">Recent Videos</h2>
-                    <p class="mt-4 text-lg max-w-2xl mx-auto">Catch up on my recent journeys and discover new places to add to your bucket list.</p>
-                </div>
+                <!-- Video Grid -->
+                <h3 class="text-2xl font-bold text-center mb-6">Popular Travel Vlogs</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Video Card 1 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <img src="https://placehold.co/600x400/3498db/ffffff?text=Iceland" alt="Video thumbnail for Iceland" class="w-full h-48 object-cover">
+                    <!-- Video 1 -->
+                    <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://scontent.fccu2-3.fna.fbcdn.net/v/t39.30808-6/469518448_624762410120299_5271156381999946389_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=kJ_ToCGIySAQ7kNvwF7BmdC&_nc_oc=AdmHYHdOjlOykwnUqaUnMsRjCWrhHR2jpC3hq7M7HQWOsfhlvGBvff7AJkM2x5gTQktIly7xtNRi6mwzAuwVfgVI&_nc_zt=23&_nc_ht=scontent.fccu2-3.fna&_nc_gid=ZdjhguX68CMY9f8Z5xnLmw&oh=00_AfT3HazkDIOIXJgF8B5mTU1SJ6Aa335o3LOkfoD27y73wg&oe=688AC846" alt="Travel Vlog Thumbnail" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <p class="text-sm text-indigo-500 font-semibold">ICELAND</p>
-                            <h3 class="mt-2 text-xl font-bold text-slate-800">Chasing Waterfalls in Iceland</h3>
-                            <p class="mt-2 text-slate-500">A journey through the land of fire and ice, discovering the most majestic waterfalls.</p>
+                            <h4 class="font-bold text-lg">Exploring Bangladesh</h4>
+                            <p class="text-slate-500 text-sm mt-1">Journeys through the heart of the country.</p>
                         </div>
                     </div>
-                    <!-- Video Card 2 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <img src="https://placehold.co/600x400/e74c3c/ffffff?text=Morocco" alt="Video thumbnail for Morocco" class="w-full h-48 object-cover">
+                    <!-- Video 2 -->
+                     <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://scontent.fccu2-4.fna.fbcdn.net/v/t39.30808-6/474975102_122200005386046598_6721350831005528149_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=zxviy4GrJB4Q7kNvwE5R9uR&_nc_oc=Adlr1CgTW2dpVTDsThChfo0w4i8eNiVygc3NVZFXtIaA9jr7hsiELTu-k-ly-VFqYHf_wuYS53RIEFQ0zDBP8uH3&_nc_zt=23&_nc_ht=scontent.fccu2-4.fna&_nc_gid=f_69lKDkjiXQRqsTsA2Dqg&oh=00_AfTf_4r8CRFbUqVaFJXISU4Qu080yPj4dys4X_VsVoQO8Q&oe=688ACC0D" alt="Travel Vlog Thumbnail" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <p class="text-sm text-indigo-500 font-semibold">MOROCCO</p>
-                            <h3 class="mt-2 text-xl font-bold text-slate-800">Lost in the Markets of Marrakech</h3>
-                            <p class="mt-2 text-slate-500">Navigating the vibrant souks, tasting local delicacies, and experiencing the magic of Morocco.</p>
+                            <h4 class="font-bold text-lg">Border Stories</h4>
+                            <p class="text-slate-500 text-sm mt-1">Unique insights from the India-Bangladesh border.</p>
                         </div>
                     </div>
-                    <!-- Video Card 3 -->
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                        <img src="https://placehold.co/600x400/2ecc71/ffffff?text=Vietnam" alt="Video thumbnail for Vietnam" class="w-full h-48 object-cover">
+                    <!-- Video 3 -->
+                     <div class="bg-slate-50 rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://scontent.fccu2-3.fna.fbcdn.net/v/t39.30808-6/474698696_621679667109404_2293061466686682273_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=B3m1bbpmHgIQ7kNvwGZedOY&_nc_oc=AdkemfqP_nhSrw6xSqJbZ4muQs_t7LQX-4QxHWMQMZJ-JgA8AXMHbAegRdAn7ajsvIzsvBKMouWhZ3zppozKPE7e&_nc_zt=23&_nc_ht=scontent.fccu2-3.fna&_nc_gid=POtzHGresQsZeGt12H4Dsw&oh=00_AfSniXKKu9nyozYyBk7Sy3K0pUd9Wc8t09NAe-xDnqzWBA&oe=688AC7E8" alt="Travel Vlog Thumbnail" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <p class="text-sm text-indigo-500 font-semibold">VIETNAM</p>
-                            <h3 class="mt-2 text-xl font-bold text-slate-800">Sailing Through Ha Long Bay</h3>
-                            <p class="mt-2 text-slate-500">An unforgettable boat trip through the limestone karsts and emerald waters of Vietnam.</p>
+                            <h4 class="font-bold text-lg">Cultural Connections</h4>
+                            <p class="text-slate-500 text-sm mt-1">Celebrating our shared heritage and traditions.</p>
                         </div>
                     </div>
                 </div>
                 <div class="text-center mt-12">
-                    <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-300">View All Videos on YouTube</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Destinations Section -->
-        <section id="destinations" class="py-20 bg-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="section-title">Destinations Explored</h2>
-                    <p class="mt-4 text-lg max-w-2xl mx-auto">From snowy peaks to tropical beaches, here's a glimpse of the places I've been fortunate to visit.</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="relative rounded-xl overflow-hidden h-64 group">
-                        <img src="https://placehold.co/400x600/f39c12/ffffff?text=Egypt" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Egypt">
-                        <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                            <h3 class="text-white text-xl font-bold">Egypt</h3>
-                        </div>
-                    </div>
-                    <div class="relative rounded-xl overflow-hidden h-64 group col-span-2">
-                        <img src="https://placehold.co/800x600/8e44ad/ffffff?text=Japan" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Japan">
-                        <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                            <h3 class="text-white text-xl font-bold">Japan</h3>
-                        </div>
-                    </div>
-                    <div class="relative rounded-xl overflow-hidden h-64 group">
-                        <img src="https://placehold.co/400x600/16a085/ffffff?text=Peru" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Peru">
-                        <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                            <h3 class="text-white text-xl font-bold">Peru</h3>
-                        </div>
-                    </div>
-                    <div class="relative rounded-xl overflow-hidden h-64 group col-span-2">
-                         <img src="https://placehold.co/800x600/c0392b/ffffff?text=Italy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Italy">
-                        <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                            <h3 class="text-white text-xl font-bold">Italy</h3>
-                        </div>
-                    </div>
-                     <div class="relative rounded-xl overflow-hidden h-64 group col-span-2">
-                         <img src="https://placehold.co/800x600/2980b9/ffffff?text=New+Zealand" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="New Zealand">
-                        <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                            <h3 class="text-white text-xl font-bold">New Zealand</h3>
-                        </div>
-                    </div>
+                    <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" class="btn-accent">Visit My YouTube Channel</a>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20">
+        <section id="about" class="py-20 lg:py-28">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/3">
-                        <img src="https://placehold.co/500x500/64748b/ffffff?text=Alex" alt="Portrait of Alex the Adventurer" class="rounded-full shadow-2xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">My Story</h2>
+                        <div class="space-y-4 text-slate-600 leading-relaxed">
+                            <p>I am Amit Majumder, from Kolkata. My journey started as a simple travel vlogger, but my path took a unique turn. My deep connection with Bangladesh, further solidified by my marriage to a Bangladeshi woman, placed me in a special position. I became more than a YouTuber; I became a bridge for people on both sides of the border.</p>
+                            <p>My audience, largely Bengali-speaking people from both India and Bangladesh, started reaching out to me not just for travel tips, but for guidance on complex issues like visas and cross-border marriages. I realized there was a genuine need for a trusted guide who understands the nuances of both cultures and bureaucracies.</p>
+                            <p>Today, my work extends to geopolitical analysis and providing concrete solutions to the very real challenges people face. This website is an extension of my mission: to connect our people, share our stories, and offer professional help where it's needed most.</p>
+                        </div>
                     </div>
-                    <div class="md:w-2/3 text-center md:text-left">
-                        <h2 class="section-title">About Me</h2>
-                        <p class="mt-4 text-lg">Hey, I'm Alex!</p>
-                        <p class="mt-4 leading-relaxed">Ever since I was young, I've had an insatiable curiosity about the world. I saved up, bought my first camera, and booked a one-way ticket. I haven't looked back since. My goal is to inspire you to step out of your comfort zone, experience new cultures, and create your own adventures. This channel is more than just travel videos; it's a community of explorers who believe that the world is meant to be seen.</p>
-                        <p class="mt-4 leading-relaxed">Thanks for being a part of the journey!</p>
+                    <div class="order-1 lg:order-2">
+                        <img src="https://scontent.fccu2-3.fna.fbcdn.net/v/t39.30808-6/495309438_122215587260046598_22991622749132756_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=AJxRMO4IFvMQ7kNvwHypKc8&_nc_oc=AdnypRBp-9PciFuSBAgYd18P3keZ_tm6FR8--0CA2V7TQHep-5YA-DCcKfaBBAXfhkgO_9QGkPd3_xwkPUziGWmK&_nc_zt=23&_nc_ht=scontent.fccu2-3.fna&_nc_gid=NAQUwTu5epcRhqQSlwgIAg&oh=00_AfTU5MylQrcrB3E0zu_qew8YJ5UQmDmVEtFKY_NWZZ8Tdw&oe=688AF59C" 
+                             alt="Amit Majumder in Bangladesh" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-slate-800 text-white">
+        <!-- Contact Section (The Smart Funnel) -->
+        <section id="contact" class="py-20 lg:py-28 bg-slate-900 text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="section-title text-white">Get In Touch</h2>
-                    <p class="mt-4 text-lg max-w-2xl mx-auto text-slate-300">Have a question, a collaboration idea, or just want to say hi? Drop me a line!</p>
-                </div>
-                <div class="max-w-2xl mx-auto">
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="sr-only">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Your Name" class="w-full bg-slate-700 border-slate-600 rounded-md p-3 text-white placeholder-slate-400 focus:ring-indigo-500 focus:border-indigo-500">
-                        </div>
-                        <div>
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Your Email" class="w-full bg-slate-700 border-slate-600 rounded-md p-3 text-white placeholder-slate-400 focus:ring-indigo-500 focus:border-indigo-500">
-                        </div>
-                        <div>
-                            <label for="message" class="sr-only">Message</label>
-                            <textarea name="message" id="message" rows="4" placeholder="Your Message" class="w-full bg-slate-700 border-slate-600 rounded-md p-3 text-white placeholder-slate-400 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-300">Send Message</button>
-                        </div>
-                    </form>
+                <h2 class="section-title text-white">Get In Touch</h2>
+                <p class="section-subtitle text-slate-300">To help me respond efficiently, please choose the appropriate contact method below. This ensures your message gets to the right place.</p>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <!-- Contact Card 1: Business -->
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center">
+                        <i data-lucide="briefcase" class="w-12 h-12 text-orange-500 mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">For Business & Brands</h3>
+                        <p class="text-slate-400 mb-6">For sponsorships, collaborations, media inquiries, or other business-related proposals.</p>
+                        <a href="mailto:amit.business.yt@gmail.com" class="font-bold text-orange-500 hover:text-orange-400 transition-colors inline-flex items-center gap-2">
+                            Email for Business <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <!-- Contact Card 2: Services -->
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center">
+                        <i data-lucide="message-square-heart" class="w-12 h-12 text-orange-500 mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">For Services & General Inquiry</h3>
+                        <p class="text-slate-400 mb-6">For questions about my services or general messages. WhatsApp is the fastest way to reach me.</p>
+                        <a href="https://wa.me/917980884644" target="_blank" class="font-bold text-orange-500 hover:text-orange-400 transition-colors inline-flex items-center gap-2">
+                            Contact on WhatsApp <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400">
+    <footer class="bg-gray-950 text-slate-400">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-center md:text-left mb-4 md:mb-0">
-                    <p class="text-lg font-bold text-white">Alex the Adventurer</p>
-                    <p class="text-sm">&copy; 2025 All Rights Reserved.</p>
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
+                <div>
+                    <p class="text-lg font-bold text-white">Amit Majumder</p>
+                    <p class="text-sm">&copy; 2024 All Rights Reserved. Designed to connect.</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" aria-label="YouTube"><i data-lucide="youtube" class="w-6 h-6 hover:text-indigo-400 transition-colors"></i></a>
-                    <a href="#" aria-label="Instagram"><i data-lucide="instagram" class="w-6 h-6 hover:text-indigo-400 transition-colors"></i></a>
-                    <a href="#" aria-label="Twitter"><i data-lucide="twitter" class="w-6 h-6 hover:text-indigo-400 transition-colors"></i></a>
-                    <a href="#" aria-label="TikTok"><i data-lucide="music" class="w-6 h-6 hover:text-indigo-400 transition-colors"></i></a>
+                    <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" aria-label="YouTube" class="hover:text-orange-500 transition-colors"><i data-lucide="youtube" class="w-6 h-6"></i></a>
+                    <a href="https://www.facebook.com/search/top?q=amit%20majumder" target="_blank" aria-label="Facebook" class="hover:text-orange-500 transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                    <a href="https://www.instagram.com/amitmajumder01/" target="_blank" aria-label="Instagram" class="hover:text-orange-500 transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                    <a href="https://wa.me/917980884644" target="_blank" aria-label="WhatsApp" class="hover:text-orange-500 transition-colors"><i data-lucide="message-circle" class="w-6 h-6"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Lucide Icons
+        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile Menu Toggle
+        // Mobile Menu Logic
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuOpenIcon = document.getElementById('menu-open-icon');
@@ -301,16 +129,29 @@
             });
         });
 
-        // Navbar background on scroll
+        // Sticky Navbar Logic
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+                navbar.classList.add('bg-gray-950/80', 'backdrop-blur-sm', 'shadow-lg');
             } else {
-                navbar.classList.remove('bg-slate-900/80', 'backdrop-blur-sm', 'shadow-lg');
+                navbar.classList.remove('bg-gray-950/80', 'backdrop-blur-sm', 'shadow-lg');
             }
         });
 
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                // Only scroll if it's not just a hash
+                if (targetId.length > 1) {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
