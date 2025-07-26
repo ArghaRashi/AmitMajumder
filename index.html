@@ -17,132 +17,11 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide-icons@latest/dist/lucide.js"></script>
 
-    <style>
-        /* NEW DESIGN: "The Digital Diary" - Terracotta & Parchment Theme */
-        :root {
-            --color-bg: #FDF8F0; /* Warm Parchment/Paper */
-            --color-text: #212121; /* Deep Charcoal/Ink */
-            --color-text-muted: #5c5c5c;
-            --color-accent-primary: #C05621; /* Earthy Terracotta */
-            --color-accent-primary-hover: #A1441A;
-            --color-accent-secondary: #047857; /* Deep Teal/Green */
-            --color-surface: #FFFFFF;
-        }
+    <!-- Your Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .bengali-text {
-            font-family: 'Noto Sans Bengali', sans-serif;
-        }
-
-        /* Navigation */
-        #navbar.scrolled {
-            background-color: rgba(253, 248, 240, 0.85);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .nav-link {
-            font-weight: 600;
-            color: var(--color-text);
-            transition: color 0.3s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--color-accent-primary);
-            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .nav-link:hover:after {
-            width: 100%;
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-align: center;
-        }
-        .btn-primary {
-            background-color: var(--color-accent-primary);
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: var(--color-accent-primary-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(192, 86, 33, 0.2);
-        }
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--color-text);
-            border: 2px solid var(--color-text);
-        }
-        .btn-secondary:hover {
-            background-color: var(--color-text);
-            color: white;
-        }
-
-        /* Section Styles */
-        .section-title {
-            font-size: 3.5rem; /* 56px */
-            font-weight: 800;
-            line-height: 1.1;
-            color: var(--color-text);
-        }
-        .section-subtitle {
-            font-size: 1.25rem; /* 20px */
-            color: var(--color-text-muted);
-            max-width: 48rem;
-            margin: 1rem auto 3rem;
-        }
-        
-        /* Service Card */
-        .service-card {
-            background-color: var(--color-surface);
-            border: 1px solid #EAE0D5;
-            border-radius: 0.5rem;
-            padding: 2.5rem 2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            border-color: var(--color-accent-primary);
-        }
-        .service-card h3 {
-            color: var(--color-accent-primary);
-        }
-
-        /* Scroll Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <!-- Your Custom JavaScript (defer ensures it runs after HTML is parsed) -->
+    <script src="script.js" defer></script>
 </head>
 <body class="antialiased">
 
@@ -176,25 +55,30 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
-        <div class="min-h-screen flex items-center pt-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div class="text-center lg:text-left">
-                        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight reveal">Amit Majumder</h1>
-                        <div class="mt-6 text-xl md:text-2xl max-w-xl mx-auto lg:mx-0 reveal" style="transition-delay: 200ms;">
-                            <p class="font-serif text-gray-700">A storyteller's journey connecting Bengal & Bangladesh through travel, dialogue, and dedicated solutions.</p>
-                            <p class="bengali-text mt-4 text-gray-700" lang="bn">বাংলা ও বাংলাদেশকে সংযুক্ত করার একটি গল্পকারের যাত্রা।</p>
-                        </div>
-                        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 reveal" style="transition-delay: 400ms;">
-                            <a href="#services" class="btn btn-primary">Explore Services</a>
-                            <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" class="btn btn-secondary">Latest Video</a>
-                        </div>
+        <!-- Hero Section with Slideshow -->
+        <div class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+            <!-- Slideshow Container -->
+            <div id="slideshow-container" class="absolute top-0 left-0 w-full h-full z-10">
+                <img src="https://images.unsplash.com/photo-1542704593-e4a234382141?q=80&w=2070&auto=format&fit=crop" alt="Victoria Memorial, Kolkata" class="slideshow-image w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1593796894258-242857316867?q=80&w=1932&auto=format&fit=crop" alt="Ahsan Manzil, Dhaka, Bangladesh" class="slideshow-image w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1563214041-8f5170b20fde?q=80&w=2070&auto=format&fit=crop" alt="Howrah Bridge at sunset" class="slideshow-image w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1628198441115-4632a7920b7f?q=80&w=1964&auto=format&fit=crop" alt="Boats on a river in Bangladesh" class="slideshow-image w-full h-full object-cover">
+            </div>
+
+            <!-- Dark Overlay for Readability -->
+            <div class="absolute top-0 left-0 w-full h-full bg-black/60 z-20"></div>
+
+            <!-- Content Container -->
+            <div class="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white reveal">Amit Majumder</h1>
+                    <div class="mt-6 text-xl md:text-2xl max-w-xl mx-auto reveal" style="transition-delay: 200ms;">
+                        <p class="font-serif text-gray-200">A storyteller's journey connecting Bengal & Bangladesh through travel, dialogue, and dedicated solutions.</p>
+                        <p class="bengali-text mt-4 text-gray-200" lang="bn">বাংলা ও বাংলাদেশকে সংযুক্ত করার একটি গল্পকারের যাত্রা।</p>
                     </div>
-                    <div class="flex justify-center reveal" style="transition-delay: 300ms;">
-                        <div class="relative w-80 h-96 lg:w-96 lg:h-[480px] rounded-lg overflow-hidden shadow-2xl transform rotate-3 transition-transform duration-500 hover:rotate-0 hover:scale-105">
-                            <img src="https://scontent.fccu2-4.fna.fbcdn.net/v/t39.30808-6/475278512_623349793609058_5683019478569961669_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=QbMd2YlZe3IQ7kNvwFgnlmo&_nc_oc=AdlBs49UZn75E1WwgluaJSnl2wSrmoqBseZvDrejK0UPx_5fFsDF5QV-Pa8mhESCkdViMaIubkC7YsIZRqQ2wjDI&_nc_zt=23&_nc_ht=scontent.fccu2-4.fna&_nc_gid=85Al_C77hJ67-bDqT4K5Ig&oh=00_AfSXPSbatS5J_mTmz6HVbcnQwuC0rrQvo4fI7RmuQEBgHw&oe=688AE3B0" alt="Amit Majumder" class="w-full h-full object-cover">
-                        </div>
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay: 400ms;">
+                        <a href="#services" class="btn btn-primary">Explore Services</a>
+                        <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary !border-white !text-white hover:!bg-white hover:!text-black">Latest Video</a>
                     </div>
                 </div>
             </div>
@@ -262,7 +146,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-12 reveal">
-                    <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" class="btn btn-primary">Visit My Channel</a>
+                    <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit My Channel</a>
                 </div>
             </div>
         </section>
@@ -283,7 +167,7 @@
                         </a>
                     </div>
                     <div class="reveal" style="transition-delay: 200ms;">
-                        <a href="https://wa.me/917980884644" target="_blank" class="block p-8 bg-white rounded-lg border border-gray-200 hover:border-accent-secondary transition-all duration-300 h-full shadow-lg hover:shadow-2xl hover:-translate-y-2">
+                        <a href="https://wa.me/917980884644" target="_blank" rel="noopener noreferrer" class="block p-8 bg-white rounded-lg border border-gray-200 hover:border-accent-secondary transition-all duration-300 h-full shadow-lg hover:shadow-2xl hover:-translate-y-2">
                             <i data-lucide="message-square-heart" class="w-10 h-10 text-accent-secondary mx-auto mb-4"></i>
                             <h3 class="text-2xl font-bold mb-2 font-serif text-accent-secondary">For Services & Inquiry</h3>
                             <p class="text-text-muted">Questions about my services or general messages. WhatsApp is fastest.</p>
@@ -300,71 +184,17 @@
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
                 <div>
                     <p class="text-lg font-bold text-white font-serif">Amit Majumder</p>
-                    <p class="text-sm">&copy; 2024 All Rights Reserved. Designed to connect.</p>
+                    <p class="text-sm">&copy; <span id="year">2024</span> All Rights Reserved. Designed to connect.</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" aria-label="YouTube" class="hover:text-red-500 transition-colors"><i data-lucide="youtube" class="w-6 h-6"></i></a>
-                    <a href="https://www.facebook.com/search/top?q=amit%20majumder" target="_blank" aria-label="Facebook" class="hover:text-blue-500 transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
-                    <a href="https://www.instagram.com/amitmajumder01/" target="_blank" aria-label="Instagram" class="hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
-                    <a href="https://wa.me/917980884644" target="_blank" aria-label="WhatsApp" class="hover:text-green-500 transition-colors"><i data-lucide="message-circle" class="w-6 h-6"></i></a>
+                    <a href="https://www.youtube.com/@AmitMajumder1" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-red-500 transition-colors"><i data-lucide="youtube" class="w-6 h-6"></i></a>
+                    <a href="https://www.facebook.com/search/top?q=amit%20majumder" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-blue-500 transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                    <a href="https://www.instagram.com/amitmajumder01/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-pink-500 transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                    <a href="https://wa.me/917980884644" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="hover:text-green-500 transition-colors"><i data-lucide="message-circle" class="w-6 h-6"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Mobile Menu Logic
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuOpenIcon = document.getElementById('menu-open-icon');
-        const menuCloseIcon = document.getElementById('menu-close-icon');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuOpenIcon.classList.toggle('hidden');
-            menuCloseIcon.classList.toggle('hidden');
-        });
-        
-        document.querySelectorAll('#mobile-menu a, .nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if(link.getAttribute('href').startsWith('#')) {
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        menuOpenIcon.classList.remove('hidden');
-                        menuCloseIcon.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Sticky Navbar Logic
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll Animation Logic
-        const revealElements = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Optional: unobserve after revealing to save resources
-                    // observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        revealElements.forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
