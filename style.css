@@ -1,0 +1,54 @@
+<style>
+    /* We define the brand colors and fonts here based on our discussion */
+    :root {
+        /* These are the main colors for your brand identity */
+        --color-primary: #111827; /* Charcoal Grey for text and dark backgrounds */
+        --color-secondary: #f8fafc; /* A clean off-white for main backgrounds */
+        --color-accent: #F97316; /* The vibrant Saffron/Marigold Orange for buttons and highlights */
+        --color-accent-hover: #EA580C; /* A slightly darker orange for when you hover over buttons */
+    }
+
+    /* Sets the default font and colors for the whole page */
+    body {
+        font-family: 'Inter', sans-serif; /* A clean, modern font for paragraphs */
+        background-color: var(--color-secondary); /* Uses the off-white background */
+        color: #374151; /* A dark grey for body text, easy to read */
+    }
+
+    /* Sets the font for all headings (h1, h2, h3) */
+    h1, h2, h3 {
+        font-family: 'Poppins', sans-serif; /* The strong, professional font for titles */
+        color: var(--color-primary); /* Uses the main Charcoal Grey */
+    }
+
+    /* A special class for any text that should be in Bengali */
+    .bengali-text {
+        font-family: 'Noto Sans Bengali', sans-serif; /* Ensures Bengali text displays correctly and beautifully */
+    }
+
+    /* Custom classes for navigation links for reusability */
+    .nav-link {
+        @apply text-white/80 hover:text-white transition-colors duration-300 font-medium;
+    }
+    .nav-link-mobile {
+        @apply block text-slate-700 hover:bg-slate-100 p-3 rounded-md font-medium;
+    }
+
+    /* Custom class for your main call-to-action buttons */
+    .btn-accent {
+        @apply bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105;
+    }
+
+    /* Custom class for your secondary buttons (like "Watch Video") */
+    .btn-secondary {
+        @apply bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:bg-white hover:text-slate-900;
+    }
+
+    /* Custom classes for consistent section titles */
+    .section-title {
+        @apply text-4xl md:text-5xl font-extrabold text-center mb-4;
+    }
+    .section-subtitle {
+        @apply text-lg text-slate-500 text-center max-w-3xl mx-auto mb-12;
+    }
+</style>
