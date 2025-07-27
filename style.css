@@ -189,6 +189,7 @@ a {
     text-align: center;
     color: var(--secondary-color);
     overflow: hidden;
+    background: url('slide1.jpg') no-repeat center 25% / cover;
 }
 
 .slideshow-container {
@@ -198,8 +199,6 @@ a {
     width: 100%;
     height: 100%;
     z-index: -1;
-    /* FIX: Set the first slide as a permanent background to prevent any black screens */
-    background: url('slide1.jpg') no-repeat center 25% / cover;
 }
 
 .slide {
@@ -212,12 +211,9 @@ a {
     background-position: center 25%;
     opacity: 0;
     transform: scale(1.1);
-    /* FIX: Total animation time is 12 slides * 5s = 60s */
     animation: kenburns-fade 60s linear infinite;
 }
 
-/* Stagger the animation start time for each slide */
-/* The first slide in the HTML will fade in over the identical background image */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 5s; }
 .slide:nth-child(3) { animation-delay: 10s; }
@@ -262,28 +258,22 @@ a {
 }
 
 /* --- Slideshow Animation --- */
-/* FIX: NEW ROBUST KEYFRAME LOGIC */
 @keyframes kenburns-fade {
-  /* Each slide is "active" for 5s, which is 8.33% of the total 60s animation */
   0% {
     opacity: 0;
     transform: scale(1.1);
   }
-  /* Fade in over 1 second (1.67% of 60s) */
   1.67% {
     opacity: 1;
   }
-  /* Hold visible and zoom out for 3 seconds */
   8.33% {
     opacity: 1;
     transform: scale(1);
   }
-  /* Fade out over 1 second */
   10% {
     opacity: 0;
     transform: scale(1);
   }
-  /* Remain invisible for the rest of the cycle */
   100% {
     opacity: 0;
   }
@@ -399,6 +389,12 @@ a {
     
     .main-nav ul li {
         margin-left: 1rem;
+    }
+
+    /* THIS IS THE FIX FOR THE MOBILE DROPDOWN */
+    .dropdown-menu {
+        left: 0;
+        right: auto; /* Unset the right property for mobile */
     }
 
     .hero-title {
