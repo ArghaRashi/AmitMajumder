@@ -1,0 +1,456 @@
+/* =========== GOOGLE FONTS =========== */
+/* We are using the 'Poppins' font imported in the HTML */
+
+/* =========== CSS VARIABLES =========== */
+/* Using variables makes it easy to change colors across the site */
+:root {
+    --primary-color: #0a0a0a; /* Almost black for text and dark backgrounds */
+    --secondary-color: #ffffff; /* Pure white for text and light backgrounds */
+    --accent-color: #E67E22; /* A warm, inviting orange for buttons and highlights */
+    --accent-hover-color: #d35400; /* A darker orange for hover effects */
+    --header-bg-color: rgba(10, 10, 10, 0.85); /* Semi-transparent background for the header */
+    --text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Shadow for text on top of images */
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* A soft shadow for cards and elements */
+}
+
+/* =========== GENERAL STYLES & RESET =========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling when clicking nav links */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4; /* A light grey background for content sections */
+    color: #333;
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* =========== HEADER SECTION =========== */
+#header {
+    position: fixed; /* Makes the header 'sticky' */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the header is always on top */
+    background: var(--header-bg-color);
+    backdrop-filter: blur(10px); /* Creates a modern 'frosted glass' effect */
+    padding: 1rem 2rem;
+    transition: background 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Space between language button and social links */
+}
+
+.lang-button {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.lang-button:hover {
+    background-color: var(--accent-hover-color);
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Navigation Menu --- */
+.main-nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    position: relative; /* Needed for the dropdown menu positioning */
+    margin-left: 2rem;
+}
+
+.nav-link {
+    color: var(--secondary-color);
+    font-weight: 700;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* Underline effect for nav links */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Dropdown Menu (for Services) --- */
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    right: 0; 
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 0.75rem 0; 
+    box-shadow: var(--box-shadow);
+    min-width: 220px;
+    opacity: 0; 
+    transform: translateY(10px); 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; 
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu li a {
+    display: block;
+    color: var(--secondary-color);
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--accent-color);
+}
+
+/* =========== HERO SECTION & SLIDESHOW =========== */
+#hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-color);
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* FIX: Set the first slide as a permanent background to prevent any black screens */
+    background: url('slide1.jpg') no-repeat center 25% / cover;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center 25%;
+    opacity: 0;
+    transform: scale(1.1);
+    /* FIX: Total animation time is 12 slides * 5s = 60s */
+    animation: kenburns-fade 60s linear infinite;
+}
+
+/* Stagger the animation start time for each slide */
+/* The first slide in the HTML will fade in over the identical background image */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+.slide:nth-child(4) { animation-delay: 15s; }
+.slide:nth-child(5) { animation-delay: 20s; }
+.slide:nth-child(6) { animation-delay: 25s; }
+.slide:nth-child(7) { animation-delay: 30s; }
+.slide:nth-child(8) { animation-delay: 35s; }
+.slide:nth-child(9) { animation-delay: 40s; }
+.slide:nth-child(10) { animation-delay: 45s; }
+.slide:nth-child(11) { animation-delay: 50s; }
+.slide:nth-child(12) { animation-delay: 55s; }
+
+
+/* Add a dark overlay to ensure text is readable */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 900;
+    text-shadow: var(--text-shadow);
+}
+
+.hero-tagline {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-shadow: var(--text-shadow);
+}
+
+/* --- Slideshow Animation --- */
+/* FIX: NEW ROBUST KEYFRAME LOGIC */
+@keyframes kenburns-fade {
+  /* Each slide is "active" for 5s, which is 8.33% of the total 60s animation */
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  /* Fade in over 1 second (1.67% of 60s) */
+  1.67% {
+    opacity: 1;
+  }
+  /* Hold visible and zoom out for 3 seconds */
+  8.33% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* Fade out over 1 second */
+  10% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  /* Remain invisible for the rest of the cycle */
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* =========== CONTENT SECTIONS (About, Contact) =========== */
+.content-section {
+    padding: 5rem 0;
+    background-color: var(--secondary-color);
+}
+.content-section:nth-child(odd) {
+     background-color: #f9f9f9;
+}
+
+
+/* --- About Me Section --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--accent-color);
+    box-shadow: var(--box-shadow);
+}
+
+.about-text {
+    flex: 1;
+}
+
+/* --- Contact Section --- */
+.contact-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.contact-columns {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-card {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    flex: 1;
+    max-width: 400px;
+    border-top: 5px solid var(--accent-color);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-button:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-2px);
+}
+
+.contact-note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* =========== FOOTER SECTION =========== */
+#footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* =========== RESPONSIVE DESIGN (for tablets and mobile) =========== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .main-nav ul li {
+        margin-left: 1rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #header {
+        padding: 1rem;
+    }
+    
+    .header-left {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .main-nav ul li {
+        margin: 0 0.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
